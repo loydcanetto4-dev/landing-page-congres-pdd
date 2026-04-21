@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="fr" id="root">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Congrès de la Piscine de Demain — Save the Date · 7 & 8 Décembre 2026</title>
+  <style>
+    /* ── FONTS ──────────────────────────────────────────────────────── */
+    @font-face {
+      font-family: 'N27';
+      src: url('n27-webfont-womplete/webfont files/n27-regular-webfont.woff2') format('woff2'), url('n27-webfont-womplete/webfont files/n27-regular-webfont.woff') format('woff');
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'N27';
+      src: url('n27-webfont-womplete/webfont files/n27-medium-webfont.woff2') format('woff2'), url('n27-webfont-womplete/webfont files/n27-medium-webfont.woff') format('woff');
+      font-weight: 500;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'N27';
+      src: url('n27-webfont-womplete/webfont files/n27-light-webfont.woff2') format('woff2'), url('n27-webfont-womplete/webfont files/n27-light-webfont.woff') format('woff');
+      font-weight: 300;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Avenir';
+      src: url('avenir-font/Avenir-Light.woff2') format('woff2');
+      font-weight: 300;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Avenir';
+      src: url('avenir-font/Avenir-Roman.woff2') format('woff2');
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Avenir';
+      src: url('avenir-font/Avenir-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-display: swap;
+    }
+
+    /* ── TOKENS ─────────────────────────────────────────────────────── */
+    :root {
+      --minuit: #1C2D3A;
+      --ardoise: #3B4452;
+      --beton: #8A909A;
+      --laiton: #B8936A;
+      --ciel: #C5DCE5;
+      --nacre: #F4F0EA;
+      --white: #FFFFFF;
+      --off: #F7F5F2;
+      --ft: 'N27', sans-serif;
+      --fb: 'Avenir', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    /* ── RESET ──────────────────────────────────────────────────────── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--minuit);
+      font-family: var(--fb);
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    /* ── ANNOUNCE BAR ────────────────────────────────────────────────── */
+    #announce {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 400;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--laiton);
+      font-family: var(--ft);
+      font-size: 0.56rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--minuit);
+      overflow: hidden;
+      transition: height .35s ease, opacity .35s ease;
+    }
+
+    #announce.away {
+      height: 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* ── NAV ─────────────────────────────────────────────────────────── */
+    #nav {
+      position: fixed;
+      top: 36px;
+      left: 0;
+      right: 0;
+      z-index: 300;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 3.5rem;
+      transition: top .35s ease, background .4s ease, box-shadow .4s ease, padding .3s ease;
+    }
+
+    #nav.scrolled {
+      top: 0;
+      background: rgba(255, 255, 255, 0.97);
+      box-shadow: 0 1px 0 rgba(28, 45, 58, .07), 0 4px 24px rgba(28, 45, 58, .07);
+      padding: .9rem 3.5rem;
+    }
+
+    .nav-logo img {
+      height: 30px;
+      width: auto;
+      transition: filter .4s ease;
+    }
+
+    #nav.scrolled .nav-logo img {
+      filter: brightness(0);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+    }
+
+    /* lang switch */
+    .ls {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      font-family: var(--ft);
+      font-size: .6rem;
+      letter-spacing: .14em;
+    }
+
+    .ls-btn {
+      background: none;
+      border: none;
+      font: inherit;
+      letter-spacing: inherit;
+      color: rgba(255, 255, 255, .38);
+      padding: .2rem .1rem;
+      transition: color .2s;
+    }
+
+    .ls-btn.on {
+      color: var(--laiton);
+    }
+
+    .ls-sep {
+      color: rgba(255, 255, 255, .16);
+      font-size: .5rem;
+    }
+
+    #nav.scrolled .ls-btn {
+      color: rgba(28, 45, 58, .32);
+    }
+
+    #nav.scrolled .ls-btn.on {
+      color: var(--laiton);
+    }
+
+    #nav.scrolled .ls-sep {
+      color: rgba(28, 45, 58, .16);
+    }
+
+    /* nav cta */
+    .nav-cta {
+      font-family: var(--ft);
+      font-size: .6rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      padding: .55rem 1.2rem;
+      border: 1px solid rgba(255, 255, 255, .4);
+      color: var(--white);
+      transition: background .22s, color .22s, border-color .22s;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+
+    #nav.scrolled .nav-cta {
+      border-color: var(--minuit);
+      color: var(--minuit);
+    }
+
+    .nav-cta:hover {
+      background: var(--laiton);
+      color: var(--minuit);
+      border-color: var(--laiton);
+    }
+
+    /* ── HERO ────────────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 100svh;
+      min-height: 640px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: var(--minuit);
+    }
+
+    #hbg {
+      position: absolute;
+      inset: 0;
+      will-change: transform;
+    }
+
+    #hbg img {
+      width: 100%;
+      height: 115%;
+      object-fit: cover;
+      object-position: center 35%;
+      filter: brightness(.55) saturate(.65);
+    }
+
+    .h-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(170deg, rgba(28, 45, 58, .1) 0%, rgba(28, 45, 58, 0) 30%, rgba(28, 45, 58, .7) 65%, rgba(28, 45, 58, 1) 100%);
+    }
+
+    .h-body {
+      position: relative;
+      z-index: 2;
+      padding: 0 3.5rem 5.5rem;
+      width: 100%;
+    }
+
+    .h-std {
+      font-family: var(--ft);
+      font-size: clamp(3rem, 9.5vw, 10.5rem);
+      font-weight: 400;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      color: var(--laiton);
+      line-height: .9;
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: rise .9s .1s cubic-bezier(.16, 1, .3, 1) forwards;
+    }
+
+    .h-title {
+      font-family: var(--ft);
+      font-size: clamp(1.25rem, 2.5vw, 2.3rem);
+      font-weight: 400;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 1.6rem;
+      opacity: 0;
+      animation: rise .9s .38s cubic-bezier(.16, 1, .3, 1) forwards;
+    }
+
+    .h-foot {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      opacity: 0;
+      animation: rise .9s .56s cubic-bezier(.16, 1, .3, 1) forwards;
+    }
+
+    .h-rule {
+      width: 32px;
+      height: 1px;
+      background: var(--laiton);
+      flex-shrink: 0;
+    }
+
+    .h-meta {
+      font-size: .8rem;
+      font-weight: 300;
+      letter-spacing: .1em;
+      color: rgba(244, 240, 234, .7);
+    }
+
+    @keyframes rise {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ── SCROLL REVEAL ───────────────────────────────────────────────── */
+    .rv {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .72s ease-out, transform .72s ease-out;
+    }
+
+    .rv.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .rvl {
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity .72s ease-out, transform .72s ease-out;
+    }
+
+    .rvl.in {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .d1 {
+      transition-delay: .08s;
+    }
+
+    .d2 {
+      transition-delay: .16s;
+    }
+
+    .d3 {
+      transition-delay: .24s;
+    }
+
+    .d4 {
+      transition-delay: .32s;
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+
+      .rv,
+      .rvl {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .h-std,
+      .h-title,
+      .h-foot {
+        opacity: 1;
+        transform: none;
+        animation: none;
+      }
+    }
+
+    /* ── SECTION COMMONS ─────────────────────────────────────────────── */
+    .sec {
+      padding: 6.5rem 3.5rem;
+    }
+
+    .inner {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .ey {
+      display: block;
+      font-family: var(--ft);
+      font-size: .58rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--laiton);
+      margin-bottom: 1.5rem;
+    }
+
+    .h2 {
+      font-family: var(--ft);
+      font-size: clamp(1.65rem, 2.9vw, 2.7rem);
+      font-weight: 400;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      line-height: 1.08;
+    }
+
+    .h2-d {
+      color: var(--white);
+    }
+
+    .rule {
+      width: 40px;
+      height: 1px;
+      background: var(--laiton);
+      margin: 1.8rem 0;
+    }
+
+    .bt {
+      font-size: .93rem;
+      line-height: 1.88;
+      font-weight: 300;
+    }
+
+    .bt-l {
+      color: var(--ardoise);
+    }
+
+    .bt-d {
+      color: rgba(244, 240, 234, .72);
+    }
+
+    /* ── SECTION: EVENT (white) ──────────────────────────────────────── */
+    .s-ev {
+      background: var(--white);
+    }
+
+    .ev-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .kpi-stack {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .kpi {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 1.4rem;
+      align-items: center;
+      padding: 1.7rem 0;
+      border-bottom: 1px solid rgba(28, 45, 58, .07);
+    }
+
+    .kpi:first-child {
+      border-top: 1px solid rgba(28, 45, 58, .07);
+    }
+
+    .kv {
+      font-family: var(--ft);
+      font-size: clamp(2rem, 3.2vw, 3rem);
+      font-weight: 300;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      color: var(--minuit);
+      line-height: 1;
+    }
+
+    .kv em {
+      color: var(--laiton);
+      font-style: normal;
+    }
+
+    .kc {
+      font-size: .79rem;
+      line-height: 1.5;
+      color: var(--beton);
+      font-weight: 300;
+      letter-spacing: .04em;
+    }
+
+    /* ── PHOTO BREAK ─────────────────────────────────────────────────── */
+    .pb {
+      position: relative;
+      height: 58vh;
+      min-height: 360px;
+      overflow: hidden;
+    }
+
+    .pb-bg {
+      position: absolute;
+      inset: 0;
+      will-change: transform;
+    }
+
+    .pb-bg img {
+      width: 100%;
+      height: 130%;
+      object-fit: cover;
+      object-position: center;
+      filter: brightness(.68) saturate(.75);
+    }
+
+    .pb-ov {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(28, 45, 58, .25) 0%, rgba(28, 45, 58, .5) 100%);
+    }
+
+    .pb-txt {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .8rem;
+      padding: 1rem;
+    }
+
+    .pb-line {
+      width: 36px;
+      height: 1px;
+      background: var(--laiton);
+    }
+
+    .pb-label {
+      font-family: var(--ft);
+      font-size: .6rem;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: rgba(244, 240, 234, .7);
+      text-align: center;
+    }
+
+    /* ── SECTION: FORMAT (dark) ──────────────────────────────────────── */
+    .s-fmt {
+      background: var(--minuit);
+    }
+
+    .fmt-hd {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+      margin-bottom: 4rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      padding: 2.6rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      border-right: 1px solid rgba(255, 255, 255, .07);
+      transition: background .3s ease;
+    }
+
+    .card:last-child {
+      border-right: none;
+    }
+
+    .card:hover {
+      background: rgba(59, 68, 82, .35);
+    }
+
+    .cn {
+      font-family: var(--ft);
+      font-size: .54rem;
+      letter-spacing: .26em;
+      color: var(--laiton);
+    }
+
+    .cl {
+      width: 26px;
+      height: 1px;
+      background: rgba(184, 147, 106, .32);
+    }
+
+    .ct {
+      font-family: var(--ft);
+      font-size: .95rem;
+      font-weight: 400;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    .cd {
+      font-size: .82rem;
+      line-height: 1.8;
+      color: rgba(244, 240, 234, .68);
+      font-weight: 300;
+    }
+
+    .ctag {
+      display: inline-block;
+      margin-top: auto;
+      align-self: flex-start;
+      font-family: var(--ft);
+      font-size: .52rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--laiton);
+      border: 1px solid rgba(184, 147, 106, .28);
+      padding: .26rem .6rem;
+    }
+
+    .fmt-note {
+      margin-top: 2.8rem;
+      padding: 1.4rem 2rem;
+      border-left: 2px solid var(--laiton);
+      background: rgba(255, 255, 255, .025);
+    }
+
+    .fmt-note p {
+      font-size: .84rem;
+      line-height: 1.65;
+      color: rgba(244, 240, 234, .68);
+      font-weight: 300;
+    }
+
+    .fmt-note strong {
+      color: var(--nacre);
+      font-weight: 400;
+    }
+
+    /* ── SECTION: VENUE (white) ──────────────────────────────────────── */
+    .s-venue {
+      background: var(--white);
+    }
+
+    .venue-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .mosaic {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 320px 180px;
+      gap: 6px;
+    }
+
+    .m-main {
+      grid-column: span 2;
+      overflow: hidden;
+    }
+
+    .m-sub {
+      overflow: hidden;
+    }
+
+    .mosaic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.88) brightness(.94);
+      transition: transform .6s ease-out, filter .6s ease-out;
+    }
+
+    .m-main:hover img,
+    .m-sub:hover img {
+      transform: scale(1.04);
+      filter: saturate(1) brightness(1);
+    }
+
+    .v-name {
+      font-family: var(--ft);
+      font-size: .78rem;
+      font-weight: 400;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--minuit);
+    }
+
+    .v-addr {
+      font-size: .82rem;
+      color: var(--beton);
+      letter-spacing: .05em;
+      line-height: 1.6;
+      margin-top: .3rem;
+      margin-bottom: 2.4rem;
+    }
+
+    .feat {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feat li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      font-size: .83rem;
+      color: var(--ardoise);
+      font-weight: 300;
+      line-height: 1.5;
+      padding: .9rem 0;
+      border-bottom: 1px solid rgba(28, 45, 58, .06);
+    }
+
+    .feat li:first-child {
+      border-top: 1px solid rgba(28, 45, 58, .06);
+    }
+
+    .feat li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 16px;
+      height: 1px;
+      background: var(--laiton);
+      margin-top: .62rem;
+    }
+
+    /* ── SECTION: FORM (dark) ────────────────────────────────────────── */
+    .s-form {
+      background: var(--minuit);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .f-deco {
+      position: absolute;
+      right: -3%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--ft);
+      font-size: min(22vw, 280px);
+      font-weight: 400;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .025);
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+    }
+
+    .f-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .f-std {
+      font-family: var(--ft);
+      font-size: clamp(1.4rem, 2.8vw, 2.3rem);
+      font-weight: 300;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--laiton);
+      margin-bottom: .5rem;
+    }
+
+    .f-wrap {
+      margin-top: 3rem;
+    }
+
+    .f-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(255, 255, 255, .05);
+      margin-bottom: 1px;
+    }
+
+    .ff {
+      background: rgba(28, 45, 58, .75);
+      position: relative;
+    }
+
+    .ff label {
+      position: absolute;
+      top: 1rem;
+      left: 1.6rem;
+      font-family: var(--ft);
+      font-size: .5rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--beton);
+      transition: color .2s;
+      pointer-events: none;
+    }
+
+    .ff:focus-within label {
+      color: var(--laiton);
+    }
+
+    .ff input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 2rem 1.6rem .8rem;
+      font-family: var(--fb);
+      font-size: .9rem;
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: .04em;
+      min-height: 64px;
+    }
+
+    .ff::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--laiton);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s ease;
+    }
+
+    .ff:focus-within::after {
+      transform: scaleX(1);
+    }
+
+    .ff-full {
+      display: block;
+      background: rgba(28, 45, 58, .75);
+    }
+
+    .f-sub {
+      width: 100%;
+      padding: 1.45rem;
+      margin-top: 1px;
+      background: var(--laiton);
+      border: none;
+      font-family: var(--ft);
+      font-size: .68rem;
+      font-weight: 400;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: var(--minuit);
+      transition: background .26s ease, letter-spacing .38s ease;
+      min-height: 56px;
+    }
+
+    .f-sub:hover {
+      background: var(--nacre);
+      letter-spacing: .3em;
+    }
+
+    .f-sub:active {
+      background: var(--ciel);
+    }
+
+    .f-cap {
+      margin-top: 1.2rem;
+      font-size: .7rem;
+      color: rgba(138, 144, 154, .42);
+      letter-spacing: .06em;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────────────────── */
+    footer {
+      background: #111C23;
+      border-top: 1px solid rgba(255, 255, 255, .04);
+      padding: 2.2rem 3.5rem;
+    }
+
+    .ft-in {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .ft-logo img {
+      height: 24px;
+      opacity: .55;
+    }
+
+    .ft-r {
+      font-size: .7rem;
+      color: rgba(138, 144, 154, .4);
+      font-weight: 300;
+      letter-spacing: .07em;
+      line-height: 1.7;
+      text-align: right;
+    }
+
+    /* ── MOBILE BOTTOM TABS ──────────────────────────────────────────── */
+    .m-tabs {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 500;
+      background: rgba(22, 34, 44, .97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(255, 255, 255, .07);
+      padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+
+    .m-tabs-inner {
+      display: flex;
+      height: 56px;
+    }
+
+    .m-tab {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .22rem;
+      font-family: var(--ft);
+      font-size: .42rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(138, 144, 154, .55);
+      transition: color .2s;
+      -webkit-tap-highlight-color: transparent;
+      min-height: 44px;
+      padding: 0 .25rem;
+    }
+
+    .m-tab.on,
+    .m-tab:active {
+      color: var(--laiton);
+    }
+
+    .m-tab svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────────────── */
+    /* Tablet */
+    @media (max-width:1024px) {
+      .sec {
+        padding: 5rem 2.5rem;
+      }
+
+      #nav,
+      #nav.scrolled {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+
+      .ev-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+      }
+
+      .fmt-hd {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, .07);
+      }
+
+      .card:last-child {
+        border-bottom: none;
+      }
+
+      .venue-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .mosaic {
+        grid-template-rows: 260px 150px;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width:767px) {
+      #announce {
+        display: none;
+      }
+
+      #nav {
+        top: 0 !important;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      #nav {
+        padding: 1rem 1.25rem;
+      }
+
+      #nav.scrolled {
+        padding: .8rem 1.25rem;
+      }
+
+      .nav-logo img {
+        height: 26px;
+      }
+
+      .h-body {
+        padding: 0 1.25rem calc(4rem + 56px + env(safe-area-inset-bottom, 0));
+      }
+
+      .h-std {
+        font-size: clamp(2.8rem, 13vw, 4.5rem);
+        margin-bottom: 1.5rem;
+      }
+
+      .h-title {
+        font-size: clamp(1rem, 3.8vw, 1.4rem);
+        margin-bottom: 1.2rem;
+      }
+
+      .h-meta {
+        font-size: .75rem;
+      }
+
+      .sec {
+        padding: 4rem 1.25rem;
+      }
+
+      .f-row {
+        grid-template-columns: 1fr;
+      }
+
+      .f-deco {
+        display: none;
+      }
+
+      .m-tabs {
+        display: block;
+      }
+
+      body {
+        padding-bottom: calc(56px + env(safe-area-inset-bottom, 0));
+      }
+
+      footer {
+        padding: 2rem 1.25rem;
+      }
+
+      .ft-in {
+        flex-direction: column;
+        gap: 1.1rem;
+      }
+
+      .ft-r {
+        text-align: center;
+      }
+
+      .mosaic {
+        grid-template-rows: 200px 130px;
+      }
+
+      .pb {
+        height: 45vh;
+        min-height: 260px;
+      }
+    }
+
+    /* Small mobile */
+    @media (max-width:380px) {
+      .h-std {
+        font-size: clamp(2.4rem, 11.5vw, 3rem);
+      }
+
+      .m-tab span {
+        display: none;
+      }
+
+      .m-tab svg {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── ANNOUNCE BAR ───────────────────────────────────────────── -->
+  <div id="announce" role="banner">
+    <span data-t="announce">Save the Date &nbsp;·&nbsp; 7 &amp; 8 Décembre 2026 &nbsp;·&nbsp; Paris</span>
+  </div>
+
+  <!-- ── NAV ───────────────────────────────────────────────────── -->
+  <nav id="nav" aria-label="Navigation principale">
+    <a href="#top" class="nav-logo" aria-label="La Piscine de Demain — accueil">
+      <img src="PDD-light (1).svg" alt="La Piscine de Demain" width="120" height="30" />
+    </a>
+    <div class="nav-right">
+      <div class="ls" aria-label="Langue / Language">
+        <button class="ls-btn on" data-lang="fr" aria-pressed="true">FR</button>
+        <span class="ls-sep" aria-hidden="true">|</span>
+        <button class="ls-btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a href="#inscription" class="nav-cta" data-t="nav-cta">S'inscrire</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ──────────────────────────────────────────────────── -->
+  <section class="hero" id="top" aria-label="Hero">
+    <div id="hbg" aria-hidden="true">
+      <img src="photo-lieux/3095-03.jpg" alt="" fetchpriority="high" width="1600" height="1067" />
+    </div>
+    <div class="h-overlay" aria-hidden="true"></div>
+    <div class="h-body">
+      <p class="h-std" aria-label="Save the Date">Save<br>the date</p>
+      <h1 class="h-title" data-t="hero-title">Congrès de la Piscine de Demain</h1>
+      <div class="h-foot">
+        <div class="h-rule" aria-hidden="true"></div>
+        <span class="h-meta" data-t="hero-meta">Face à la tour Eiffel &nbsp;·&nbsp; 7 &amp; 8 Décembre 2026
+          &nbsp;·&nbsp; Paris</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION: L'ÉVÉNEMENT ──────────────────────────────────── -->
+  <section class="sec s-ev" id="s-event" aria-labelledby="h-ev">
+    <div class="inner">
+      <div class="ev-grid">
+        <div>
+          <span class="ey rv" data-t="ev-eyebrow">L'événement</span>
+          <h2 class="h2 rv d1" id="h-ev" data-t="ev-h2">Le rendez-vous<br>de la piscine publique</h2>
+          <div class="rule rv d2" aria-hidden="true"></div>
+          <p class="bt bt-l rv d2" data-t="ev-p1">Conçu pour les acteurs de la filière, le Congrès de la Piscine de
+            Demain est le rendez-vous annuel qui réunit décideurs, collectivités, architectes, exploitants et
+            industriels autour d'une ambition commune&nbsp;: bâtir les équipements aquatiques publics de demain.</p>
+          <p class="bt bt-l rv d3" style="margin-top:1.1rem" data-t="ev-p2">Deux jours d'échanges intensifs, de retours
+            d'expérience et de networking au cœur de Paris, dans un cadre d'exception directement face à la Tour Eiffel.
+          </p>
+        </div>
+        <div class="kpi-stack">
+          <div class="kpi rv">
+            <div class="kv"><em>+</em>300</div>
+            <div class="kc" data-t="kpi1-cap">Professionnels de la filière réunis</div>
+          </div>
+          <div class="kpi rv d1">
+            <div class="kv"><em>2</em></div>
+            <div class="kc" data-t="kpi2-cap">Jours de conférences, ateliers et rencontres B2B</div>
+          </div>
+          <div class="kpi rv d2">
+            <div class="kv">EU</div>
+            <div class="kc" data-t="kpi3-cap">Ouverture sur le marché européen de la piscine publique</div>
+          </div>
+          <div class="kpi rv d3">
+            <div class="kv">FR<em>/</em>EN</div>
+            <div class="kc" data-t="kpi4-cap">Conférences bilingues, intervenants français et européens</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PHOTO BREAK 1 ─────────────────────────────────────────── -->
+  <div class="pb" aria-hidden="true">
+    <div class="pb-bg" data-pb>
+      <img src="photo-lieux/LOBBY RECEPTION HD-4.jpg" alt="" loading="lazy" width="1600" height="900" />
+    </div>
+    <div class="pb-ov"></div>
+    <div class="pb-txt">
+      <div class="pb-line"></div>
+      <p class="pb-label" data-t="pb1-text">7 &amp; 8 Décembre 2026 &nbsp;·&nbsp; Paris</p>
+      <div class="pb-line"></div>
+    </div>
+  </div>
+
+  <!-- ── SECTION: FORMAT ───────────────────────────────────────── -->
+  <section class="sec s-fmt" id="s-format" aria-labelledby="h-fmt">
+    <div class="inner">
+      <div class="fmt-hd">
+        <div>
+          <span class="ey rv" data-t="fmt-eyebrow">Le format</span>
+          <h2 class="h2 h2-d rv d1" id="h-fmt" data-t="fmt-h2">Un format conçu<br>pour la rencontre</h2>
+        </div>
+        <div>
+          <div class="rule rv" aria-hidden="true"></div>
+          <p class="bt bt-d rv d1" data-t="fmt-lead">Chaque dimension du congrès est pensée pour maximiser la qualité
+            des échanges entre professionnels et collectivités — dans un cadre unique, avec une ouverture résolument
+            européenne.</p>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="card rv">
+          <span class="cn">01</span>
+          <div class="cl" aria-hidden="true"></div>
+          <h3 class="ct" data-t="c1-title">Speed Dating<br>Collectivités</h3>
+          <p class="cd" data-t="c1-text">Des rencontres ciblées et structurées entre entreprises partenaires et
+            représentants des collectivités. Un format inédit pour créer des liens directs avec les décideurs publics.
+          </p>
+          <span class="ctag" data-t="c1-tag">Rencontres B2B</span>
+        </div>
+        <div class="card rv d1">
+          <span class="cn">02</span>
+          <div class="cl" aria-hidden="true"></div>
+          <h3 class="ct" data-t="c2-title">Conférences<br>Bilingues</h3>
+          <p class="cd" data-t="c2-text">Des prises de parole d'experts français et européens, en français et en
+            anglais. Contenus actionnables, retours d'expérience concrets et perspectives internationales.</p>
+          <span class="ctag" data-t="c2-tag">FR / EN</span>
+        </div>
+        <div class="card rv d2">
+          <span class="cn">03</span>
+          <div class="cl" aria-hidden="true"></div>
+          <h3 class="ct" data-t="c3-title">Ouverture<br>Européenne</h3>
+          <p class="cd" data-t="c3-text">Tendances, réglementations et innovations à l'échelle du marché européen de la
+            piscine publique. L'opportunité de positionner votre expertise au-delà des frontières.</p>
+          <span class="ctag" data-t="c3-tag">Marché EU</span>
+        </div>
+      </div>
+      <div class="fmt-note rv">
+        <p data-t="fmt-note"><strong>Hébergement sur place inclus.</strong> L'ensemble des participants sont logés au
+          Novotel Paris Centre Tour Eiffel, favorisant un cadre d'échange continu du premier au dernier jour de
+          l'événement.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PHOTO BREAK 2 ─────────────────────────────────────────── -->
+  <div class="pb" aria-hidden="true">
+    <div class="pb-bg" data-pb>
+      <img src="photo-lieux/image_processing20211004-8399-tzv9aq.jpg" alt="" loading="lazy" width="1600" height="900" />
+    </div>
+    <div class="pb-ov"></div>
+    <div class="pb-txt">
+      <div class="pb-line"></div>
+      <p class="pb-label" data-t="pb2-text">Face à la Tour Eiffel &nbsp;·&nbsp; Novotel Paris Centre</p>
+      <div class="pb-line"></div>
+    </div>
+  </div>
+
+  <!-- ── SECTION: LIEU ─────────────────────────────────────────── -->
+  <section class="sec s-venue" id="s-venue" aria-labelledby="h-venue">
+    <div class="inner">
+      <div class="venue-grid">
+        <div class="mosaic rvl">
+          <div class="m-main">
+            <img src="photo-lieux/LOBBY RECEPTION HD-4.jpg" alt="Lobby Novotel Paris Centre Tour Eiffel" loading="lazy"
+              width="900" height="600" />
+          </div>
+          <div class="m-sub">
+            <img src="photo-lieux/3095-03.jpg" alt="Novotel Paris vue extérieure" loading="lazy" width="450"
+              height="300" />
+          </div>
+          <div class="m-sub">
+            <img src="photo-lieux/image_processing20211004-8399-tzv9aq.jpg" alt="Espace événementiel" loading="lazy"
+              width="450" height="300" />
+          </div>
+        </div>
+        <div>
+          <span class="ey rv" data-t="venue-eyebrow">Le lieu</span>
+          <h2 class="h2 rv d1" id="h-venue" data-t="venue-h2">Face à la<br>Tour Eiffel</h2>
+          <div class="rule rv d1" aria-hidden="true"></div>
+          <p class="bt bt-l rv d2" data-t="venue-p">Positionné directement sur les quais de Seine face à la Tour Eiffel,
+            le Novotel Paris Centre est le cadre d'exception de ce rendez-vous professionnel unique.</p>
+          <div class="rv d2" style="margin-top:2rem">
+            <p class="v-name">Novotel Paris Centre Tour Eiffel</p>
+            <p class="v-addr">61 Quai de Grenelle · 75015 Paris</p>
+          </div>
+          <ul class="feat rv d3" aria-label="Caractéristiques du lieu">
+            <li data-t="feat1">Vue panoramique directe sur la Tour Eiffel et la Seine</li>
+            <li data-t="feat2">Salles de conférence modulables, équipées et lumineuses</li>
+            <li data-t="feat3">Hébergement intégré — tous les participants logés sur place</li>
+            <li data-t="feat4">Accès direct métro ligne 6 — station Bir-Hakeim</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION: INSCRIPTION ──────────────────────────────────── -->
+  <section class="sec s-form" id="inscription" aria-labelledby="h-form">
+    <div class="f-deco" aria-hidden="true">PDD</div>
+    <div class="inner">
+      <div class="f-inner">
+        <p class="f-std rv" data-t="form-std">Save the Date</p>
+        <span class="ey rv d1" data-t="form-eyebrow">Inscription</span>
+        <h2 class="h2 h2-d rv d1" id="h-form" data-t="form-h2">Rejoignez<br>le congrès</h2>
+        <div class="rule rv d2" aria-hidden="true"></div>
+        <p class="bt bt-d rv d2" data-t="form-lead">Manifestez votre intérêt pour le Congrès de la Piscine de Demain.
+          Notre équipe reviendra vers vous avec toutes les informations de participation.</p>
+        <form class="f-wrap rv d3" id="cta-form" novalidate aria-label="Formulaire d'inscription"
+          onsubmit="handleSubmit(event)">
+          <div class="f-row">
+            <div class="ff">
+              <label for="nom" data-t="lbl-nom">Nom</label>
+              <input type="text" id="nom" name="nom" autocomplete="family-name" required aria-required="true" />
+            </div>
+            <div class="ff">
+              <label for="prenom" data-t="lbl-prenom">Prénom</label>
+              <input type="text" id="prenom" name="prenom" autocomplete="given-name" required aria-required="true" />
+            </div>
+          </div>
+          <div class="ff ff-full">
+            <label for="email" data-t="lbl-email">Email professionnel</label>
+            <input type="email" id="email" name="email" autocomplete="email" required aria-required="true" />
+          </div>
+          <button type="submit" class="f-sub" data-t="form-submit">L'événement m'intéresse</button>
+          <p class="f-cap" id="form-msg" aria-live="polite" data-t="form-caption">7 &amp; 8 Décembre 2026 · Novotel
+            Paris Centre Tour Eiffel · Paris 15<sup>e</sup></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer>
+    <div class="ft-in">
+      <div class="ft-logo"><img src="PDD-light (1).svg" alt="La Piscine de Demain" width="100" height="24" /></div>
+      <div class="ft-r">
+        <span data-t="foot-txt">Congrès de la Piscine de Demain · 7 &amp; 8 Décembre 2026 · Paris</span><br>
+        <span style="opacity:.5">© 2026 La Piscine de Demain</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── MOBILE TABS ────────────────────────────────────────────── -->
+  <nav class="m-tabs" aria-label="Navigation" role="navigation">
+    <div class="m-tabs-inner">
+      <a href="#s-event" class="m-tab on" data-target="s-event" aria-label="Événement">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+        <span data-t="tab-home">Événement</span>
+      </a>
+      <a href="#s-format" class="m-tab" data-target="s-format" aria-label="Format">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="3" width="7" height="7" rx=".5" />
+          <rect x="14" y="3" width="7" height="7" rx=".5" />
+          <rect x="14" y="14" width="7" height="7" rx=".5" />
+          <rect x="3" y="14" width="7" height="7" rx=".5" />
+        </svg>
+        <span data-t="tab-fmt">Format</span>
+      </a>
+      <a href="#s-venue" class="m-tab" data-target="s-venue" aria-label="Lieu">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
+          <circle cx="12" cy="10" r="3" />
+        </svg>
+        <span data-t="tab-venue">Lieu</span>
+      </a>
+      <a href="#inscription" class="m-tab" data-target="inscription" aria-label="S'inscrire">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+          <polyline points="22,6 12,13 2,6" />
+        </svg>
+        <span data-t="tab-reg">S'inscrire</span>
+      </a>
+    </div>
+  </nav>
+
+  <script>
+    // ── TRANSLATIONS ─────────────────────────────────────────────────
+    const T = {
+      fr: {
+        announce: 'Save the Date &nbsp;·&nbsp; 7 &amp; 8 Décembre 2026 &nbsp;·&nbsp; Paris',
+        'nav-cta': "S'inscrire",
+        'hero-title': 'Congrès de la Piscine de Demain',
+        'hero-meta': 'Face à la tour Eiffel &nbsp;·&nbsp; 7 &amp; 8 Décembre 2026 &nbsp;·&nbsp; Paris',
+        'pb1-text': '7 &amp; 8 Décembre 2026 &nbsp;·&nbsp; Paris',
+        'pb2-text': 'Face à la Tour Eiffel &nbsp;·&nbsp; Novotel Paris Centre',
+        'ev-eyebrow': "L'événement",
+        'ev-h2': 'Le rendez-vous<br>de la piscine publique',
+        'ev-p1': "Conçu pour les acteurs de la filière, le Congrès de la Piscine de Demain est le rendez-vous annuel qui réunit décideurs, collectivités, architectes, exploitants et industriels autour d'une ambition commune : bâtir les équipements aquatiques publics de demain.",
+        'ev-p2': "Deux jours d'échanges intensifs, de retours d'expérience et de networking au cœur de Paris, dans un cadre d'exception directement face à la Tour Eiffel.",
+        'kpi1-cap': 'Professionnels de la filière réunis',
+        'kpi2-cap': 'Jours de conférences, ateliers et rencontres B2B',
+        'kpi3-cap': 'Ouverture sur le marché européen de la piscine publique',
+        'kpi4-cap': 'Conférences bilingues, intervenants français et européens',
+        'fmt-eyebrow': 'Le format',
+        'fmt-h2': 'Un format conçu<br>pour la rencontre',
+        'fmt-lead': "Chaque dimension du congrès est pensée pour maximiser la qualité des échanges entre professionnels et collectivités — dans un cadre unique, avec une ouverture résolument européenne.",
+        'c1-title': 'Speed Dating<br>Collectivités',
+        'c1-text': "Des rencontres ciblées et structurées entre entreprises partenaires et représentants des collectivités. Un format inédit pour créer des liens directs avec les décideurs publics.",
+        'c1-tag': 'Rencontres B2B',
+        'c2-title': 'Conférences<br>Bilingues',
+        'c2-text': "Des prises de parole d'experts français et européens, en français et en anglais. Contenus actionnables, retours d'expérience concrets et perspectives internationales.",
+        'c2-tag': 'FR / EN',
+        'c3-title': 'Ouverture<br>Européenne',
+        'c3-text': "Tendances, réglementations et innovations à l'échelle du marché européen de la piscine publique. L'opportunité de positionner votre expertise au-delà des frontières.",
+        'c3-tag': 'Marché EU',
+        'fmt-note': "<strong>Hébergement sur place inclus.</strong> L'ensemble des participants sont logés au Novotel Paris Centre Tour Eiffel, favorisant un cadre d'échange continu du premier au dernier jour de l'événement.",
+        'venue-eyebrow': 'Le lieu',
+        'venue-h2': 'Face à la<br>Tour Eiffel',
+        'venue-p': "Positionné directement sur les quais de Seine face à la Tour Eiffel, le Novotel Paris Centre est le cadre d'exception de ce rendez-vous professionnel unique.",
+        feat1: 'Vue panoramique directe sur la Tour Eiffel et la Seine',
+        feat2: 'Salles de conférence modulables, équipées et lumineuses',
+        feat3: 'Hébergement intégré — tous les participants logés sur place',
+        feat4: 'Accès direct métro ligne 6 — station Bir-Hakeim',
+        'form-std': 'Save the Date',
+        'form-eyebrow': 'Inscription',
+        'form-h2': 'Rejoignez<br>le congrès',
+        'form-lead': "Manifestez votre intérêt pour le Congrès de la Piscine de Demain. Notre équipe reviendra vers vous avec toutes les informations de participation.",
+        'lbl-nom': 'Nom',
+        'lbl-prenom': 'Prénom',
+        'lbl-email': 'Email professionnel',
+        'form-submit': "L'événement m'intéresse",
+        'form-caption': '7 &amp; 8 Décembre 2026 · Novotel Paris Centre Tour Eiffel · Paris 15<sup>e</sup>',
+        'form-success': 'Merci — nous vous recontactons bientôt.',
+        'form-error': 'Merci de renseigner tous les champs.',
+        'foot-txt': 'Congrès de la Piscine de Demain · 7 &amp; 8 Décembre 2026 · Paris',
+        'tab-home': 'Événement', 'tab-fmt': 'Format', 'tab-venue': 'Lieu', 'tab-reg': "S'inscrire"
+      },
+      en: {
+        announce: 'Save the Date &nbsp;·&nbsp; December 7 &amp; 8, 2026 &nbsp;·&nbsp; Paris',
+        'nav-cta': 'Register',
+        'hero-title': 'Congress of the Pool of Tomorrow',
+        'hero-meta': 'Facing the Eiffel Tower &nbsp;·&nbsp; December 7 &amp; 8, 2026 &nbsp;·&nbsp; Paris',
+        'pb1-text': 'December 7 &amp; 8, 2026 &nbsp;·&nbsp; Paris',
+        'pb2-text': 'Facing the Eiffel Tower &nbsp;·&nbsp; Novotel Paris Centre',
+        'ev-eyebrow': 'The Event',
+        'ev-h2': 'The meeting place<br>for public aquatics',
+        'ev-p1': "Designed for industry professionals, the Congress of the Pool of Tomorrow is the annual gathering bringing together decision-makers, local authorities, architects, operators and industrialists around a shared ambition: building the public aquatic facilities of tomorrow.",
+        'ev-p2': "Two days of intensive exchanges, case studies and networking in the heart of Paris, in an exceptional setting directly facing the Eiffel Tower.",
+        'kpi1-cap': 'Industry professionals gathered',
+        'kpi2-cap': 'Days of conferences, workshops and B2B meetings',
+        'kpi3-cap': 'Opening to the European public swimming pool market',
+        'kpi4-cap': 'Bilingual conferences with French and European speakers',
+        'fmt-eyebrow': 'The Format',
+        'fmt-h2': 'A format designed<br>for meaningful encounters',
+        'fmt-lead': "Every dimension of the congress is designed to maximise the quality of exchanges between professionals and local authorities — in a unique setting, with a resolutely European outlook.",
+        'c1-title': 'Speed Dating<br>with Authorities',
+        'c1-text': "Targeted, structured meetings between partner companies and representatives of local authorities. A unique format to create direct connections with public decision-makers.",
+        'c1-tag': 'B2B Meetings',
+        'c2-title': 'Bilingual<br>Conferences',
+        'c2-text': "Talks by French and European experts, in French and in English. Actionable content, concrete case studies and international perspectives.",
+        'c2-tag': 'FR / EN',
+        'c3-title': 'European Market<br>Opening',
+        'c3-text': "Trends, regulations and innovations across the European public swimming pool market. The opportunity to position your expertise beyond borders.",
+        'c3-tag': 'EU Market',
+        'fmt-note': "<strong>On-site accommodation included.</strong> All participants are accommodated at the Novotel Paris Centre Tour Eiffel, fostering a continuous exchange environment from the first to the last day.",
+        'venue-eyebrow': 'The Venue',
+        'venue-h2': 'Facing the<br>Eiffel Tower',
+        'venue-p': "Located directly on the banks of the Seine facing the Eiffel Tower, the Novotel Paris Centre is the exceptional setting for this unique professional gathering.",
+        feat1: 'Direct panoramic view of the Eiffel Tower and the Seine',
+        feat2: 'Flexible, fully equipped and bright conference rooms',
+        feat3: 'Integrated accommodation — all participants staying on-site',
+        feat4: 'Direct access via Metro line 6 — Bir-Hakeim station',
+        'form-std': 'Save the Date',
+        'form-eyebrow': 'Registration',
+        'form-h2': 'Join<br>the congress',
+        'form-lead': "Express your interest in the Congress of the Pool of Tomorrow. Our team will get back to you with all the information you need to participate.",
+        'lbl-nom': 'Last name',
+        'lbl-prenom': 'First name',
+        'lbl-email': 'Professional email',
+        'form-submit': "I'm interested in this event",
+        'form-caption': 'December 7 &amp; 8, 2026 · Novotel Paris Centre Tour Eiffel · Paris 15<sup>th</sup>',
+        'form-success': 'Thank you — we will be in touch soon.',
+        'form-error': 'Please fill in all fields.',
+        'foot-txt': 'Congress of the Pool of Tomorrow · December 7 &amp; 8, 2026 · Paris',
+        'tab-home': 'Event', 'tab-fmt': 'Format', 'tab-venue': 'Venue', 'tab-reg': 'Register'
+      }
+    };
+    const titles = {
+      fr: 'Congrès de la Piscine de Demain — Save the Date · 7 & 8 Décembre 2026',
+      en: 'Congress of the Pool of Tomorrow — Save the Date · December 7 & 8, 2026'
+    };
+    let lang = localStorage.getItem('pdd-lang') || 'fr';
+
+    function setLang(l) {
+      lang = l;
+      const submitted = document.getElementById('cta-form').hasAttribute('data-submitted');
+      document.querySelectorAll('[data-t]').forEach(el => {
+        const k = el.getAttribute('data-t');
+        if (submitted && k === 'form-submit') return;
+        if (T[l][k] !== undefined) el.innerHTML = T[l][k];
+      });
+      document.querySelectorAll('.ls-btn').forEach(b => {
+        const on = b.dataset.lang === l;
+        b.classList.toggle('on', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      document.getElementById('root').lang = l;
+      document.title = titles[l];
+      localStorage.setItem('pdd-lang', l);
+    }
+
+    document.querySelectorAll('.ls-btn').forEach(b => {
+      b.addEventListener('click', () => setLang(b.dataset.lang));
+    });
+
+    if (lang !== 'fr') setLang(lang);
+
+    // ── NAV + ANNOUNCE SCROLL ─────────────────────────────────────────
+    const nav = document.getElementById('nav');
+    const ann = document.getElementById('announce');
+    function updateNav() {
+      const away = window.scrollY > 80;
+      ann && ann.classList.toggle('away', away);
+      nav.classList.toggle('scrolled', away);
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    // ── PARALLAX ─────────────────────────────────────────────────────
+    const reduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    const hbg = document.getElementById('hbg');
+    const hero = document.querySelector('.hero');
+    const pbBgs = document.querySelectorAll('[data-pb]');
+
+    if (!reduced) {
+      window.addEventListener('scroll', () => {
+        const sy = window.scrollY;
+        if (sy < hero.offsetHeight * 1.2) {
+          hbg.style.transform = `translateY(${sy * 0.3}px)`;
+        }
+        pbBgs.forEach(bg => {
+          const p = bg.parentElement;
+          const r = p.getBoundingClientRect();
+          if (r.bottom > 0 && r.top < window.innerHeight) {
+            const pct = (window.innerHeight - r.top) / (window.innerHeight + p.offsetHeight);
+            bg.style.transform = `translateY(${(pct * 55) - 8}px)`;
+          }
+        });
+      }, { passive: true });
+    }
+
+    // ── SCROLL REVEALS ────────────────────────────────────────────────
+    const revObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revObs.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+    document.querySelectorAll('.rv, .rvl').forEach(el => revObs.observe(el));
+
+    // ── MOBILE TAB ACTIVE STATE ───────────────────────────────────────
+    const sectionIds = ['s-event', 's-format', 's-venue', 'inscription'];
+    const tabs = document.querySelectorAll('.m-tab');
+    function updateTabs() {
+      let active = sectionIds[0];
+      sectionIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.55) active = id;
+      });
+      tabs.forEach(t => t.classList.toggle('on', t.dataset.target === active));
+    }
+    window.addEventListener('scroll', updateTabs, { passive: true });
+    tabs.forEach(t => t.addEventListener('click', () => {
+      tabs.forEach(x => x.classList.remove('on'));
+      t.classList.add('on');
+    }));
+
+    // ── SMOOTH SCROLL ─────────────────────────────────────────────────
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+
+    // ── FORM SUBMIT ───────────────────────────────────────────────────
+    function handleSubmit(e) {
+      e.preventDefault();
+      const nom = document.getElementById('nom').value.trim();
+      const prenom = document.getElementById('prenom').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg = document.getElementById('form-msg');
+      if (!nom || !prenom || !email) {
+        msg.textContent = T[lang]['form-error'];
+        msg.style.color = 'var(--ciel)';
+        return;
+      }
+      const btn = e.target.querySelector('.f-sub');
+      btn.textContent = T[lang]['form-success'];
+      btn.disabled = true; btn.style.cursor = 'default';
+      btn.style.background = 'rgba(197,220,229,.12)';
+      btn.style.color = 'var(--ciel)'; btn.style.letterSpacing = '.1em';
+      e.target.setAttribute('data-submitted', '');
+      msg.innerHTML = '';
+    }
+  </script>
+</body>
+
+</html>
