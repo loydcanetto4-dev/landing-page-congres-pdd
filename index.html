@@ -151,9 +151,10 @@
     }
 
     .nav-logo img {
-      height: 30px;
+      height: 28px;
       width: auto;
       transition: filter .4s ease;
+      filter: brightness(0) invert(1);
     }
 
     #nav.scrolled .nav-logo img {
@@ -457,8 +458,8 @@
 
     .kpi {
       display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 1.4rem;
+      grid-template-columns: max-content 1fr;
+      gap: 1.6rem;
       align-items: center;
       padding: 1.7rem 0;
       border-bottom: 1px solid rgba(28, 45, 58, .07);
@@ -476,6 +477,8 @@
       text-transform: uppercase;
       color: var(--minuit);
       line-height: 1;
+      white-space: nowrap;
+      min-width: 0;
     }
 
     .kv em {
@@ -731,6 +734,52 @@
       height: 1px;
       background: var(--laiton);
       margin-top: .62rem;
+    }
+
+    /* ── LOGO WATERMARKS ─────────────────────────────────────────────── */
+    .logo-wm {
+      position: absolute;
+      pointer-events: none;
+      user-select: none;
+      overflow: hidden;
+    }
+    .logo-wm img { display: block; width: 100%; }
+    .logo-wm-hero {
+      right: -4%; bottom: 6%;
+      width: min(58%, 680px);
+      opacity: 0; /* revealed by JS after load */
+      transition: opacity 1.2s 0.8s ease;
+    }
+    .logo-wm-hero.show { opacity: 1; }
+    .logo-wm-hero img {
+      filter: brightness(0) invert(1);
+      opacity: 0.06;
+    }
+    .logo-wm-fmt {
+      right: -3%; bottom: -8%;
+      width: min(52%, 620px);
+    }
+    .logo-wm-fmt img {
+      filter: brightness(0) invert(1);
+      opacity: 0.04;
+    }
+    .logo-wm-form {
+      right: 0; top: 50%;
+      transform: translateY(-50%);
+      width: min(55%, 640px);
+    }
+    .logo-wm-form img {
+      filter: brightness(0) sepia(1) saturate(3) hue-rotate(-5deg) brightness(1.3);
+      opacity: 0.06;
+    }
+    .ft-logo img {
+      filter: brightness(0) invert(1);
+      opacity: 0.55;
+      height: 22px;
+      width: auto;
+    }
+    @media (max-width:767px) {
+      .logo-wm-hero, .logo-wm-fmt, .logo-wm-form { display: none; }
     }
 
     /* ── SECTION: FORM (dark) ────────────────────────────────────────── */
@@ -1117,8 +1166,9 @@
 
   <!-- ── NAV ───────────────────────────────────────────────────── -->
   <nav id="nav" aria-label="Navigation principale">
-    <a href="#top" class="nav-logo" aria-label="La Piscine de Demain — accueil">
-      <img src="PDD-light (1).svg" alt="La Piscine de Demain" width="120" height="30" />
+    <a href="#top" class="nav-logo" aria-label="Congrès de la Piscine de Demain — accueil">
+      <img id="logo-nav-fr" src="logo-congres/logo-fr.svg" alt="Congrès de la Piscine de Demain" width="160" height="28" />
+      <img id="logo-nav-en" src="logo-congres/logo-en.svg" alt="Congress of the Pool of Tomorrow" width="160" height="28" style="display:none" />
     </a>
     <div class="nav-right">
       <div class="ls" aria-label="Langue / Language">
@@ -1136,6 +1186,10 @@
       <img src="photo-lieux/3095-03.jpg" alt="" fetchpriority="high" width="1600" height="1067" />
     </div>
     <div class="h-overlay" aria-hidden="true"></div>
+    <div class="logo-wm logo-wm-hero" id="wmHero" aria-hidden="true">
+      <img id="wm-hero-fr" src="logo-congres/logo-fr.svg" alt="" />
+      <img id="wm-hero-en" src="logo-congres/logo-en.svg" alt="" style="display:none" />
+    </div>
     <div class="h-body">
       <p class="h-std" aria-label="Save the Date">Save<br>the date</p>
       <h1 class="h-title" data-t="hero-title">Congrès de la Piscine de Demain</h1>
@@ -1198,8 +1252,12 @@
   </div>
 
   <!-- ── SECTION: FORMAT ───────────────────────────────────────── -->
-  <section class="sec s-fmt" id="s-format" aria-labelledby="h-fmt">
-    <div class="inner">
+  <section class="sec s-fmt" id="s-format" aria-labelledby="h-fmt" style="position:relative;overflow:hidden;">
+    <div class="logo-wm logo-wm-fmt" aria-hidden="true">
+      <img id="wm-fmt-fr" src="logo-congres/logo-fr.svg" alt="" />
+      <img id="wm-fmt-en" src="logo-congres/logo-en.svg" alt="" style="display:none" />
+    </div>
+    <div class="inner" style="position:relative;z-index:1;">
       <div class="fmt-hd">
         <div>
           <span class="ey rv" data-t="fmt-eyebrow">Le format</span>
@@ -1301,7 +1359,10 @@
 
   <!-- ── SECTION: INSCRIPTION ──────────────────────────────────── -->
   <section class="sec s-form" id="inscription" aria-labelledby="h-form">
-    <div class="f-deco" aria-hidden="true">PDD</div>
+    <div class="logo-wm logo-wm-form" aria-hidden="true">
+      <img id="wm-form-fr" src="logo-congres/logo-fr.svg" alt="" />
+      <img id="wm-form-en" src="logo-congres/logo-en.svg" alt="" style="display:none" />
+    </div>
     <div class="inner">
       <div class="f-inner">
         <p class="f-std rv" data-t="form-std">Save the Date</p>
@@ -1337,7 +1398,10 @@
   <!-- ── FOOTER ─────────────────────────────────────────────────── -->
   <footer>
     <div class="ft-in">
-      <div class="ft-logo"><img src="PDD-light (1).svg" alt="La Piscine de Demain" width="100" height="24" /></div>
+      <div class="ft-logo">
+        <img id="logo-ft-fr" src="logo-congres/logo-fr.svg" alt="Congrès de la Piscine de Demain" width="140" height="22" />
+        <img id="logo-ft-en" src="logo-congres/logo-en.svg" alt="Congress of the Pool of Tomorrow" width="140" height="22" style="display:none" />
+      </div>
       <div class="ft-r">
         <span data-t="foot-txt">Congrès de la Piscine de Demain · 7 &amp; 8 Décembre 2026 · Paris</span><br>
         <span style="opacity:.5">© 2026 La Piscine de Demain</span>
@@ -1502,6 +1566,13 @@
         b.classList.toggle('on', on);
         b.setAttribute('aria-pressed', on ? 'true' : 'false');
       });
+      // switch all logo images
+      ['logo-nav-fr','logo-nav-en','logo-ft-fr','logo-ft-en',
+       'wm-hero-fr','wm-hero-en','wm-fmt-fr','wm-fmt-en','wm-form-fr','wm-form-en']
+        .forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.style.display = id.endsWith('-' + l) ? '' : 'none';
+        });
       document.getElementById('root').lang = l;
       document.title = titles[l];
       localStorage.setItem('pdd-lang', l);
@@ -1513,7 +1584,13 @@
 
     if (lang !== 'fr') setLang(lang);
 
-    // ── NAV + ANNOUNCE SCROLL ─────────────────────────────────────────
+    // Reveal hero watermark after hero animation completes
+  window.addEventListener('load', () => {
+    const wm = document.getElementById('wmHero');
+    if (wm) setTimeout(() => wm.classList.add('show'), 600);
+  });
+
+  // ── NAV + ANNOUNCE SCROLL ─────────────────────────────────────────
     const nav = document.getElementById('nav');
     const ann = document.getElementById('announce');
     function updateNav() {
